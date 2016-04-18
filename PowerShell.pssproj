@@ -31,7 +31,7 @@
     <Folder Include="Modules\Hetzner\" />
     <Folder Include="Modules\Hetzner\publicFunctions\" />
     <Folder Include="Modules\Hetzner\privateFunctions\" />
-    <Folder Include="Modules\Hetzner\test\" />
+    <Folder Include="Modules\Hetzner\tests\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Modules\Hetzner\Hetzner.psd1" />
@@ -41,9 +41,9 @@
     <Compile Include="Modules\Hetzner\publicFunctions\Get-Hetzner.ps1" />
     <Compile Include="Modules\Hetzner\publicFunctions\Get-HetznerCredential.ps1" />
     <Compile Include="Modules\Hetzner\publicFunctions\Publish-Hetzner.ps1" />
-    <Compile Include="Modules\Hetzner\test\Get-Hetzner.tests.ps1" />
-    <Compile Include="Modules\Hetzner\test\Publish-Hetzner.tests.ps1" />
-    <Compile Include="Modules\Hetzner\test\_scriptAnalyer.tests.ps1" />
+    <Compile Include="Modules\Hetzner\tests\Get-Hetzner.tests.ps1" />
+    <Compile Include="Modules\Hetzner\tests\Publish-Hetzner.tests.ps1" />
+    <Compile Include="Modules\Hetzner\tests\_scriptAnalyer.tests.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />
