@@ -44,6 +44,7 @@
     <Compile Include="README.md" />
     <Compile Include="Scripts\Inventory\Get-ComputerFreeSpace.ps1" />
     <Compile Include="Scripts\Inventory\Get-ServiceRunAsAccount.ps1" />
+    <Compile Include="Scripts\VMM\Get-SCvmAudit.ps1" />
     <Compile Include="Scripts\VMM\Test-vLanInUse.ps1" />
   </ItemGroup>
   <ItemGroup>
