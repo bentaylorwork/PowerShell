@@ -9,7 +9,7 @@ Function Move-SCVmToHost () {
 			Move-SCVmToHost -name $vms -destinationHost "host"
 		.NOTES
 			Written by Ben Taylor
-			Version 1.0, 16.06.2016
+			Version 1.1, 24.06.2016
 	#>
 	[CmdletBinding()]
 	[OutputType([System.Collections.ArrayList])]
@@ -52,10 +52,10 @@ Function Move-SCVmToHost () {
 					try {
 						Write-Verbose "[$(Get-Date -Format G)] - $($vm.name) - Attempting to move."
 
-						$moveVm = Move-SCVirtualMachine -VM $vm -VMHost $destinationhost -Path $pathToMoveVmTo -RunAsynchronously -ErrorAction Stop
-
 						#Setup Timer For TimeOut
 						$timer = [Diagnostics.Stopwatch]::StartNew()
+
+						$moveVm = Move-SCVirtualMachine -VM $vm -VMHost $destinationhost -Path $pathToMoveVmTo -RunAsynchronously -ErrorAction Stop
 
 						#Using DO to hit sleep first
 						Do {
@@ -76,12 +76,10 @@ Function Move-SCVmToHost () {
 
 						Start-Sleep 5
 
-						$JobFinalState = Get-SCJob -ID $moveVm.MostRecentTaskID
-
-						If((-not(($JobFinalState).status -eq 'Completed')) -or (-not(($JobFinalState).Status -eq 'Completed w/ Info'))) {
-							Write-Error "[$(Get-Date -Format G)] - $($vm.name) - Was not successfully moved"
-						} else {
+						if((Get-SCJob -ID $moveVm.MostRecentTaskID).Status -like 'Completed*') {
 							Write-Verbose "[$(Get-Date -Format G)] - $($vm.name) - Was successfully moved"
+						} else {
+							Write-Error "[$(Get-Date -Format G)] - $($vm.name) - Was not successfully moved"
 						}
 					} Catch {
 						Write-Error $_
