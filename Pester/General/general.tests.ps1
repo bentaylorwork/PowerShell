@@ -22,7 +22,7 @@ Describe 'General - Testing all scripts and modules against the Script Analyzer 
 
 		Context "Checking $typeTesting – $($scriptModule) - conforms to Script Analyzer Rules" {
 			forEach ($scriptAnalyzerRule in $scriptAnalyzerRules) {
-				It "Script Analyzer Rule: $scriptAnalyzerRule" {
+				It "Script Analyzer Rule $scriptAnalyzerRule" {
 					(Invoke-ScriptAnalyzer -Path $scriptModule -IncludeRule $scriptAnalyzerRule).count | Should Be 0
 				}
 			}
