@@ -1,3 +1,17 @@
+#Requires -RunAsAdministrator
+#Requires -Modules Pester
+#Requires -PSSnapin Microsoft.Exchange.Management.PowerShell.E2010
+
+<#
+	.Synopsis
+		OVT for Microsoft Exchange Server 2010
+	.DESCRIPTION
+		A series of tests to ensure Exchange Server 2010 is operational and running to an expected config.
+	.NOTES
+		Written by Ben Taylor
+		Version 1.1, 30.06.2016
+#>
+
 Add-PSSnapin Microsoft.Exchange.Management.PowerShell.E2010 -ErrorAction SilentlyContinue
 
 $expectedConfig = @{
@@ -28,8 +42,8 @@ $currentConfig = @{
     }
 }
 
-Describe "Exchange 2010 - Operational Validation" {
-    Context "MailBox Servers" {
+Describe "Exchange 2010 - Mail Box Servers - Operational Validation" {
+    Context "General Tests" {
         it "Mail Box Servers - Count Should Be - $($expectedConfig.mailBoxServers.servers.Count)" {
             $currentConfig.mailBoxServers.servers.count | Should be $expectedConfig.mailBoxServers.servers.Count
         }
@@ -48,7 +62,9 @@ Describe "Exchange 2010 - Operational Validation" {
             it "Mail Box Server $mailBoxServer services are running" {
                 Test-ServiceHealth -Server $mailBoxServer | Should be $true
             }
-        }  
+        }
+	}
+	Context "In Depth Tests" {
         Get-DatabaseAvailabilityGroup | Select -ExpandProperty:Servers | Test-ReplicationHealth | ForEach-Object {
             it "DAG Member $($_.server.toString()) - $($_.check.toString())" {
                 $_.result | Should be "Passed"
@@ -84,7 +100,10 @@ Describe "Exchange 2010 - Operational Validation" {
             }
         }
     }
-    Context "Client Access Servers" {
+}
+
+Describe "Exchange 2010 - Client Access Servers - Operational Validation" {
+    Context "General Tests" {
         it "Client Access Servers - Count Should Be - $($expectedConfig.clientAccessServers.servers.Count)" {
             $currentConfig.clientAccessServers.servers.Count | Should be $expectedConfig.clientAccessServers.servers.count
         }
@@ -104,7 +123,9 @@ Describe "Exchange 2010 - Operational Validation" {
             }
         }  
     }
-    Context "Hub Transport Servers" {
+}
+Describe "Exchange 2010 - Hub Transport Servers - Operational Validation" {
+    Context "General Tests" {
         it "Hub Transport Servers - Count Should Be - $($expectedConfig.hubTransportServers.servers.Count)" {
             $currentConfig.hubTransportServers.servers.Count | Should be $expectedConfig.hubTransportServers.servers.count
         }
@@ -123,6 +144,8 @@ Describe "Exchange 2010 - Operational Validation" {
                 Test-ServiceHealth -Server $hubServer | Should be $true
             }
         }
+	}
+	Context "In Depth Tests" {
         $currentConfig.hubTransportServers.servers | Get-Queue | ForEach-Object {
             it "Hub Transport Server $($_.identity) queue being tested" {
                 $queue = $false
