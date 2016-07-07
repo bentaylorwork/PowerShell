@@ -44,6 +44,7 @@
     <Compile Include="README.md" />
     <Compile Include="Scripts\Inventory\Get-ComputerFreeSpace.ps1" />
     <Compile Include="Scripts\Inventory\Get-ServiceRunAsAccount.ps1" />
+    <Compile Include="Scripts\OMS\Install-OmsAgent.ps1" />
     <Compile Include="Scripts\VMM\Get-SCvmAudit.ps1" />
     <Compile Include="Scripts\VMM\Move-SCVmToHost.ps1" />
     <Compile Include="Scripts\VMM\Test-vLanInUse.ps1" />
@@ -60,6 +61,7 @@
     <Folder Include="Pester\Operational-Validation-Tests\Exchange-2010\" />
     <Folder Include="Scripts\" />
     <Folder Include="Scripts\Inventory\" />
+    <Folder Include="Scripts\OMS\" />
     <Folder Include="Scripts\VMM\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
