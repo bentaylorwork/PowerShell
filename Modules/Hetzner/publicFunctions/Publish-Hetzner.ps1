@@ -18,11 +18,11 @@
 		Publish-Hetzner -userName "<userName>" -robotFunction "server" -robotFunctionAction "<serverIP>" -robotAction "server_name=<newServerName>"
     .NOTES
         Written by Ben Taylor
-        Version 1.0, 12.01.2015
+        Version 1.1, 23.07.2016
 #>
 
 function Publish-Hetzner () {
-    [cmdletBinding(DefaultParameterSetName='userNameInline')]
+    [cmdletBinding(SupportsShouldProcess=$true, DefaultParameterSetName='userNameInline')]
 	[OutputType([System.Array])]
     Param (
         [Parameter(Position=0, Mandatory=$true, ParameterSetName='userNameInline', HelpMessage='Hetzner Robot API User Name')]
@@ -52,13 +52,15 @@ function Publish-Hetzner () {
 		$credential = Get-hetznerCredential -userName $userName
 	}
 
-    try {
-        Write-Verbose -Message "INFO: Querying Hetzner API"
-        $hetznerResponse = Invoke-RestMethod -Uri $hetznerUri -Method Post -Credential $credential -Body $robotAction -ContentType application/x-www-form-urlencoded
+    try {          						
+		If ($Pscmdlet.ShouldProcess($robotAction, 'Publish Hetzner')) {
+			Write-Verbose -Message "INFO: Querying Hetzner API"
+			$hetznerResponse = Invoke-RestMethod -Uri $hetznerUri -Method Post -Credential $credential -Body $robotAction -ContentType application/x-www-form-urlencoded
 
-		#Return data thats not nested under a single heading
-        Write-Verbose -Message 'INFO: Processing Hetzner API response'
-		$hetznerResponse.$robotFunction
+			#Return data thats not nested under a single heading
+			Write-Verbose -Message 'INFO: Processing Hetzner API response'
+			$hetznerResponse.$robotFunction
+		}
     } catch {
 		$errorHash = Get-errorHash -errorResult $_.Exception.Response.GetResponseStream()
         Write-Error -Message "ERROR: There was a error querying the Hetzner API. More Info: $errorHash"
