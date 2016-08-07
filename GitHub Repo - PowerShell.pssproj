@@ -54,6 +54,7 @@
     <Compile Include="Pester\General\general.tests.ps1" />
     <Compile Include="Pester\Operational-Validation-Tests\Exchange-2010\ex2010.tests.ps1" />
     <Compile Include="README.md" />
+    <Compile Include="Scripts\Hyper-V\Remove-VMOrphanedReplicationFile.ps1" />
     <Compile Include="Scripts\Inventory\Get-ComputerFreeSpace.ps1" />
     <Compile Include="Scripts\Inventory\Get-ServiceRunAsAccount.ps1" />
     <Compile Include="Scripts\OMS\Install-OmsAgent.ps1" />
@@ -77,6 +78,7 @@
     <Folder Include="Pester\Operational-Validation-Tests\Exchange-2010\" />
     <Folder Include="Scripts\" />
     <Folder Include="Scripts\Inventory\" />
+    <Folder Include="Scripts\Hyper-V\" />
     <Folder Include="Scripts\OMS\" />
     <Folder Include="Scripts\VMM\" />
   </ItemGroup>
