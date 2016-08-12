@@ -1,7 +1,7 @@
+#Requires -Modules VirtualMachineManager
 Function Move-SCVmToHost () {
 	<#
-		#Requires -Modules { VirtualMachineManager } 
-        .SYNOPSIS 
+		.SYNOPSIS 
 			A function to move specific vms to a specific destination host. Ignores Replica VMs.
 		.EXAMPLE
 			Import-Module virtualmachinemanager
@@ -14,23 +14,20 @@ Function Move-SCVmToHost () {
 	[CmdletBinding()]
 	[OutputType([System.Collections.ArrayList])]
 	param (
-        	[Parameter(Mandatory = $true, Position = 0, ValueFromPipeline=$True, valuefrompipelinebypropertyname=$true)]
-        	[ValidateNotNull()]
-        	[ValidateNotNullOrEmpty()]
-        	[String[]]$name,
-        	[Parameter(Mandatory = $true, Position = 1)]
-        	[ValidateNotNull()]
-        	[ValidateNotNullOrEmpty()]
-        	[String]$destinationHost,
-        	[Parameter(Mandatory = $false, Position = 2)]
-        	[ValidateNotNull()]
-        	[ValidateNotNullOrEmpty()]
-        	[int]$timeOut = 3600
+			[Parameter(Mandatory = $true, Position = 0, ValueFromPipeline=$True, valuefrompipelinebypropertyname=$true)]
+			[ValidateNotNullOrEmpty()]
+			[String[]]$name,
+			[Parameter(Mandatory = $true, Position = 1)]
+			[ValidateNotNullOrEmpty()]
+			[String]$destinationHost,
+			[Parameter(Mandatory = $false, Position = 2)]
+			[ValidateNotNullOrEmpty()]
+			[int]$timeOut = 3600
 	)
 
 	Process {
-	        #Move Action
-	        foreach ($n in $name){
+			#Move Action
+			foreach ($n in $name){
 			$vm = Get-ScVirtualMachine -name $n |  Where-Object { (($_.IsPrimaryVM) -or ($_.IsPrimaryVM -eq $false -and $_.IsRecoveryVM -eq $false)) }
 
 			if(-not (Get-ScVirtualMachine -name ($vm.name) -VMHost $destinationHost)) {
@@ -48,7 +45,7 @@ Function Move-SCVmToHost () {
 					}
 
 					Write-Verbose "[$(Get-Date -Format G)] - $($vm.name) - Path to move VM is $pathToMoveVmTo"
-        
+		
 					try {
 						Write-Verbose "[$(Get-Date -Format G)] - $($vm.name) - Attempting to move."
 
