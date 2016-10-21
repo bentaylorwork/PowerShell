@@ -174,7 +174,7 @@ Configuration solidCP
 		InstallSolidCP portal
 		{
 			Component           = 'Portal'
-			enterpriseServerURL = 'http://127.0.0.1:1009'
+			enterpriseServerURL = 'http://127.0.0.1:9002'
 			Ensure              = 'Present'
 			DependsOn           = '[InstallSolidCP]enterprise'
 		}
