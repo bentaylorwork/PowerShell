@@ -28,6 +28,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include=".gitignore" />
+    <Compile Include="DSC\InstallSolidCP\Examples\standaloneWithIISPreReqs.ps1" />
+    <Compile Include="DSC\InstallSolidCP\InstallSolidCP.psd1" />
+    <Compile Include="DSC\InstallSolidCP\InstallSolidCP.psm1" />
+    <Compile Include="DSC\InstallSolidCP\README.md" />
+    <Compile Include="DSC\InstallSolidCP\Tests\InstallSolidCP.Tests.ps1" />
     <Compile Include="LICENSE" />
     <Compile Include="Modules\Hetzner\Hetzner.psd1" />
     <Compile Include="Modules\Hetzner\Hetzner.psm1" />
@@ -63,6 +68,10 @@
     <Compile Include="Scripts\VMM\Test-vLanInUse.ps1" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="DSC\" />
+    <Folder Include="DSC\InstallSolidCP\" />
+    <Folder Include="DSC\InstallSolidCP\Examples\" />
+    <Folder Include="DSC\InstallSolidCP\Tests\" />
     <Folder Include="Modules\" />
     <Folder Include="Modules\Hetzner\" />
     <Folder Include="Modules\Hetzner\privateFunctions\" />
