@@ -22,6 +22,7 @@ function Get-omsAgentInternal {
 
 				try {
 					$omsObj = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
+					$omsObj.GetCloudWorkspaces()
 					$omsInfo.comObjectAvailable = $true
 				} catch {
 					$omsInfo.comObjectAvailable = $false
