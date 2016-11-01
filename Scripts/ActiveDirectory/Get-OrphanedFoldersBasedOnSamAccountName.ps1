@@ -41,7 +41,7 @@ Function Get-OrphanedFoldersBasedOnSamAccountName() {
 			}
 			else
 			{
-				Write-Verbose 'User Account Does Not Exists'
+				Write-Verbose 'User Account Does Not Exist'
 
 				New-Object -TypeName PSObject -Property @{
 					SamAccountName  = $_.name
