@@ -66,6 +66,7 @@
     <Compile Include="Scripts\Inventory\Get-ComputerFreeSpace.ps1" />
     <Compile Include="Scripts\Inventory\Get-ServiceRunAsAccount.ps1" />
     <Compile Include="Scripts\OMS\Install-OmsAgent.ps1" />
+    <Compile Include="Scripts\Utilities\Convert-PsObjectToHashTable.ps1" />
     <Compile Include="Scripts\VMM\Get-SCvmAudit.ps1" />
     <Compile Include="Scripts\VMM\Move-SCVmToHost.ps1" />
     <Compile Include="Scripts\VMM\Test-vLanInUse.ps1" />
@@ -94,6 +95,7 @@
     <Folder Include="Scripts\IIS\" />
     <Folder Include="Scripts\Inventory\" />
     <Folder Include="Scripts\Hyper-V\" />
+    <Folder Include="Scripts\Utilities\" />
     <Folder Include="Scripts\OMS\" />
     <Folder Include="Scripts\VMM\" />
   </ItemGroup>
