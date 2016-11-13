@@ -66,6 +66,7 @@
     <Compile Include="Scripts\Inventory\Get-ComputerFreeSpace.ps1" />
     <Compile Include="Scripts\Inventory\Get-ServiceRunAsAccount.ps1" />
     <Compile Include="Scripts\OMS\Install-OmsAgent.ps1" />
+    <Compile Include="Scripts\SoonR\Install-SoonRAgent.ps1" />
     <Compile Include="Scripts\SQL\New-SQLInsertStatementFromHashTable.ps1" />
     <Compile Include="Scripts\Utilities\Convert-PsObjectToHashTable.ps1" />
     <Compile Include="Scripts\VMM\Get-SCvmAudit.ps1" />
@@ -96,6 +97,7 @@
     <Folder Include="Scripts\IIS\" />
     <Folder Include="Scripts\Inventory\" />
     <Folder Include="Scripts\Hyper-V\" />
+    <Folder Include="Scripts\SoonR\" />
     <Folder Include="Scripts\SQL\" />
     <Folder Include="Scripts\Utilities\" />
     <Folder Include="Scripts\OMS\" />
