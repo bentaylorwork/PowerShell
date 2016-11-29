@@ -65,6 +65,7 @@
     <Compile Include="Scripts\IIS\Convert-IISLogsToObject.ps1" />
     <Compile Include="Scripts\Inventory\Get-ComputerFreeSpace.ps1" />
     <Compile Include="Scripts\Inventory\Get-ServiceRunAsAccount.ps1" />
+    <Compile Include="Scripts\Office365\Get-MsolAccountSkuAvailable.ps1" />
     <Compile Include="Scripts\OMS\Install-OmsAgent.ps1" />
     <Compile Include="Scripts\SoonR\Install-SoonRAgent.ps1" />
     <Compile Include="Scripts\SQL\New-SQLInsertStatementFromHashTable.ps1" />
@@ -97,6 +98,7 @@
     <Folder Include="Scripts\IIS\" />
     <Folder Include="Scripts\Inventory\" />
     <Folder Include="Scripts\Hyper-V\" />
+    <Folder Include="Scripts\Office365\" />
     <Folder Include="Scripts\SoonR\" />
     <Folder Include="Scripts\SQL\" />
     <Folder Include="Scripts\Utilities\" />
