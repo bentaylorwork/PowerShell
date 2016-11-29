@@ -10,7 +10,7 @@ function Get-MsolAccountSkuAvailable
 			Version 1.0, 29.11.2016
 	#>
 	[CmdletBinding()]
-	[OutputType([o365Sku])]
+	[OutputType('o365Sku')]
 	Param()
 	
 	$accountSku = Get-MsolAccountSku
