@@ -60,6 +60,7 @@
     <Compile Include="Pester\Operational-Validation-Tests\Exchange-2010\ex2010.tests.ps1" />
     <Compile Include="README.md" />
     <Compile Include="Scripts\ActiveDirectory\Get-OrphanedFoldersBasedOnSamAccountName.ps1" />
+    <Compile Include="Scripts\Diagnostics\Test-Connection.ps1" />
     <Compile Include="Scripts\Exchange\Remove-OrphanedMailboxDatabase.ps1" />
     <Compile Include="Scripts\Hyper-V\Remove-VMOrphanedReplicationFile.ps1" />
     <Compile Include="Scripts\IIS\Convert-IISLogsToObject.ps1" />
@@ -98,6 +99,7 @@
     <Folder Include="Scripts\IIS\" />
     <Folder Include="Scripts\Inventory\" />
     <Folder Include="Scripts\Hyper-V\" />
+    <Folder Include="Scripts\Diagnostics\" />
     <Folder Include="Scripts\Office365\" />
     <Folder Include="Scripts\SoonR\" />
     <Folder Include="Scripts\SQL\" />
