@@ -1,6 +1,7 @@
+#Requires -Modules VirtualMachineManager
+
 function Get-SCvmAudit () {
 	<#
-		#Requires -Modules VirtualMachineManager
 		.SYNOPSIS 
 			A function to find the basic resource info for a VM.
 		.EXAMPLE
