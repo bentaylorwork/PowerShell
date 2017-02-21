@@ -1,6 +1,7 @@
+#Requires -Modules VirtualMachineManager
+
 function Test-vLanInUse () {
     <#
-        #Requires -Modules { VirtualMachineManager } 
         .SYNOPSIS 
             A function to query if a VLAN exists in SCVMM.
         .EXAMPLE
