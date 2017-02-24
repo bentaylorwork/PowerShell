@@ -66,7 +66,7 @@ Function Move-SCVmToHost () {
 
 							Start-Sleep 5
 
-							Write-Progress -Activity “Moving VM” -status $vm -percentComplete ((Get-SCJob -ID $moveVm.MostRecentTaskID).ProgressValue)
+							Write-Progress -Activity "Moving VM" -status $vm -percentComplete ((Get-SCJob -ID $moveVm.MostRecentTaskID).ProgressValue)
 							Write-Verbose "[$(Get-Date -Format G)] - $($vm.name) - Is moving. $((Get-SCJob -ID $moveVm.MostRecentTaskID).ProgressValue) %"
 
 						} While ((Get-SCJob -ID $moveVm.MostRecentTaskID).Status -eq 'Running')
