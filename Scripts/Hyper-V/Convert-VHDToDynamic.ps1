@@ -2,7 +2,7 @@ function Convert-VHDToDynamic
 {
     <#
       .Synopsis
-         Convert Folder Of Fixed VHD's to Dynamic VHDXs
+         Convert a folder of fixed VHD's\VHDX's to dynamic VHD's\VHDXs
       .EXAMPLE
           Convert-VHDToDynamic -sourcePath 'c:\sourcePath\ -DestinationPath 'c:\destPath' -verbose
       .NOTES
