@@ -1,10 +1,10 @@
-function Get-SPOCryptoFileExtensionBlackList
+function Get-SPORansomWareFileExtensionBlackList
 {
     <#
     .Synopsis
-        Gets the latest RansemWare extensions from 'https://fsrm.experiant.ca/api/v1/get' as this seems to be the most update list.
+        Gets the latest ransomware file extensions from 'https://fsrm.experiant.ca/api/v1/get' as this seems to be the most updated list.
     .EXAMPLE
-        Get-SPOCryptoFileExtensionBlackList
+        Get-SPORansomWareFileExtensionBlackList
     .EXAMPLE
         $credential = Get-Credential
         $sharepointUrl = 'https://<tenantVanityDomian>-admin.sharepoint.com/'
@@ -13,7 +13,7 @@ function Get-SPOCryptoFileExtensionBlackList
         Connect-SPOService –url $sharepointUrl -Credential $credential
 
         # Set File Extenstion Restriction
-        Set-SPOTenantSyncClientRestriction -ExcludedFileExtensions ((Get-SPOCryptoFileExtensionBlackList) -join ';' )
+        Set-SPOTenantSyncClientRestriction -ExcludedFileExtensions ((Get-SPORansomWareFileExtensionBlackList) -join ';' )
     .NOTES
         Written by Ben Taylor
         Version 1.0, 24.01.2017
