@@ -12,7 +12,6 @@ Function Get-DistributionGroupMemberAssociation() {
             Version 1.0, 23.11.2016
     #>
     [CmdletBinding()]
-    [OutputType()]
     param()
 
     Get-DistributionGroup | Sort-Object -Property DisplayName | ForEach-Object {
