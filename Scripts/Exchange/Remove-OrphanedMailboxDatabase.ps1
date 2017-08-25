@@ -56,7 +56,7 @@ function Remove-OrphanedMailboxDatabase() {
 					$dbInformation = Get-MailboxDatabase -Identity $dbpath.name -ErrorAction Stop
 
 					#Check if MBX DB Should be on server
-					if(-not ($dbInformation.servers | Where-Object { $_.name -eq $server })) {
+					if(-not ($dbInformation.servers | Where-Object { $_ -eq $server })) {
 						Write-Warning "$($dbpath.name.toString()) - Should not have a copy of this DB on this server"
 
 						If ($Pscmdlet.ShouldProcess($($dbpath.FullName),"Remove Item")) {
