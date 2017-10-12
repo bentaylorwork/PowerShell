@@ -9,7 +9,7 @@
 	.EXAMPLE
 		Add-PSSnapin Microsoft.Exchange.Management.PowerShell.E2010 -ErrorAction SilentlyContinue
 
-		Remove-OrphanedMailboxDatabase -server '<mbx2010 Server>' -dbpath '<path to dbs>' -WhatIf
+		Remove-OrphanedMailboxDatabase -server '<mbx2010 Server>' -EdbFolderPath '<path to dbs>' -WhatIf
 	.EXAMPLE
 		Add-PSSnapin Microsoft.Exchange.Management.PowerShell.E2010 -ErrorAction SilentlyContinue
 
