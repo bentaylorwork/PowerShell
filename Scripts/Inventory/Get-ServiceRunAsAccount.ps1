@@ -69,7 +69,7 @@ function Get-ServiceRunAsAccount {
 				$services = Get-CimInstance -CimSession $cimSession -ClassName win32_service
 
 				forEach ($service in $services) {
-					If ($service.startName -contains $serviceAccount) {
+					If ($service.startName -like "*$serviceAccount*") {
 						Write-Verbose "The service $service.Name on $computer is running as $serviceAccount"
 
 						$service
