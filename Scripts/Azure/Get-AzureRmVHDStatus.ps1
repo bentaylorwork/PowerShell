@@ -13,7 +13,7 @@ function Get-AzureRmVHDStatus
     [OutputType()]
     Param()
 
-    $vhds = Get-AzureRmStorageAccount | Get-AzureStorageContainer | Get-AzureStorageBlob | Where-Object {$_.Name -match '\.vhd$'}
+    $vhds = Get-AzureRmStorageAccount | Get-AzureStorageContainer | Get-AzureStorageBlob -Blob  *.vhd
 
     forEach($vhd in $vhds)
     {
