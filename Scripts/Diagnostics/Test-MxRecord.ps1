@@ -1,11 +1,11 @@
-function Test-MxRecords {
+function Test-MxRecord {
     <#
       .Synopsis
          Tests if a domain has the correct MX records. Uses a wild card each side of the domain to match.
       .EXAMPLE
-            Test-MxRecords -name 'test.com', 'test1.com' -domain 'smtp.test.com'
+            Test-MxRecord -name 'test.com', 'test1.com' -domain 'smtp.test.com'
       .EXAMPLE
-            Test-MxRecords -name 'test.com' -domain 'smtp.test.com' -server '8.8.4.4'
+            Test-MxRecord -name 'test.com' -domain 'smtp.test.com' -server '8.8.4.4'
       .NOTES
           Written by Ben Taylor
           Version 1.0, 29.11.2016
