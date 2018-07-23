@@ -10,7 +10,7 @@ function Get-AzureRMADGraphTokenFromUserNameAndPassword()
 
             $graphGet = @{
                 'Method'  = 'GET'
-                'Uri'     = 'https://graph.microsoft.com/applications'
+                'Uri'     = 'https://graph.microsoft.com/v1.0/me'
                 'Headers' = @{
                     'Authorization' = 'Bearer {0}' -f $azureADGraphToken
                     'Content-Type'  = 'application/json'
